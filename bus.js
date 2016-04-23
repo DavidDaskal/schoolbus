@@ -2,6 +2,7 @@
 var prompt = require("prompt");
 
 var Bus = function (addedStudents) {
+
 	this.studentsOnTheBus = addedStudents;
 	this.driverName = "";
 	this.color = "";
@@ -30,6 +31,7 @@ var Bus = function (addedStudents) {
 	this.removeStudent = function() {
 		console.log("Enter name of student you want to remove:");
 		prompt.get(["name"], function (err,result) {
+			
 			for (i = 0;i < addedStudents.length;i++) {
 
 					if (addedStudents[i].name == result.name) {
@@ -45,12 +47,7 @@ var Bus = function (addedStudents) {
 						console.log("Student not on bus");
 					}
 
-				}
-			
-			 
-
-				
-			
+				}	
 
 		});
 

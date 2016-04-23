@@ -24,7 +24,7 @@ var initiate = {
 		students.push(newStudent);
 		
 		initiate.studentCount++;
-		if (initiate.studentCount <1) {  //Makes user enter 5 students
+		if (initiate.studentCount <5) {  //Makes user enter 5 students
  			
  			initiate.getInput();
 		 }

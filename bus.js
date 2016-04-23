@@ -3,10 +3,11 @@ var prompt = require("prompt");
 
 var Bus = function (addedStudents) {
 
-	this.studentsOnTheBus = addedStudents;
-	this.driverName = "";
-	this.color = "";
-	this.gas = 0;
+	thisStudent = this;
+	thisStudent.studentsOnTheBus = addedStudents;
+	thisStudent.driverName = "";
+	thisStudent.color = "";
+	thisStudent.gas = 0;
 	
 	// This function would be redundant as the prompts are gathered
 	// in main.js
@@ -19,9 +20,9 @@ var Bus = function (addedStudents) {
 	// }
 	this.busChatter = function() {
 
-		for (i=0;i<this.studentsOnTheBus.length;i++) {
-			if (this.studentsOnTheBus[i].canStudentHaveFun() == "yes") {
-				console.log("Student: "+ this.studentsOnTheBus[i].name+"'s catchphrase is "+this.studentsOnTheBus[i].catchPhrase);
+		for (i=0;i<thisStudent.studentsOnTheBus.length;i++) {
+			if (thisStudent.studentsOnTheBus[i].canStudentHaveFun() == "yes") {
+				console.log("Student: "+ thisStudent.studentsOnTheBus[i].name+"'s catchphrase is "+this.studentsOnTheBus[i].catchPhrase);
 			}
 		}
 	}
@@ -31,23 +32,22 @@ var Bus = function (addedStudents) {
 	this.removeStudent = function() {
 		console.log("Enter name of student you want to remove:");
 		prompt.get(["name"], function (err,result) {
-			
-			for (i = 0;i < addedStudents.length;i++) {
 
-					if (addedStudents[i].name == result.name) {
+			for (i = 0;i < thisStudent.studentsOnTheBus.length;i++) {
+
+					if (thisStudent.studentsOnTheBus[i].name == result.name) {
 						indexToDelete = i;
-						addedStudents.splice(indexToDelete , 1);
-			console.log(addedStudents);
+						thisStudent.studentsOnTheBus.splice(indexToDelete , 1);
+			console.log(thisStudent.studentsOnTheBus);
 
 
 					}
 
-					else {
 
-						console.log("Student not on bus");
-					}
 
-				}	
+				} //end of for loop	
+
+			console.log("Modified array with student removed if request existed in array "+ thisStudent.studentsOnTheBus);
 
 		});
 
